@@ -9,7 +9,7 @@
     <meta name="keywords" content="@yield('keywords')">
     <meta name="description" content="@yield('description')">
     
-    @section('head')
+    
     <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
 
     <link type="text/css" rel="stylesheet" href="{{ asset('assets') }}/css/bootstrap.min.css" />
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/css/font-awesome.min.css">
 
     <link type="text/css" rel="stylesheet" href="{{ asset('assets') }}/css/style.css" />
-
+    @section('head')
     @show
 </head>
 <body>

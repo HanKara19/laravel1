@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\admin\AdminHomeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +13,5 @@ Route::get('/greeting', function () {
 
 
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin');
