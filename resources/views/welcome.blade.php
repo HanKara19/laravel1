@@ -1,1 +1,1 @@
-<h2>İlk projeme hoş geldi!</h2>
+<h1>İlk projeme hoş geldin!</h1>
