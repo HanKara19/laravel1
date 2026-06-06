@@ -12,7 +12,7 @@
               </a>
             </li>
             <li class="nav-item d-none d-md-block">
-              <a href="{{ route('admin') }}" class="nav-link">Home</a>
+              <a href="{{ route('admin.index') }}" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-md-block">
               @if(session('success'))

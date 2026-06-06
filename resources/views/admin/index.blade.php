@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title') {{ $title }} 
+@section('title') Admin Panel 
 @endsection
 @section('content')
       <!--begin::App Main-->

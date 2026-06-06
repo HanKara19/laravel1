@@ -44,7 +44,7 @@
 
                 <!-- Products -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route("admin.product.index") }}" class="nav-link">
                         <i class="nav-icon bi bi-box-seam-fill"></i>
                         <p>Products</p>
                     </a>
