@@ -36,9 +36,8 @@
                 <!--begin::Small Box Widget 1-->
                 <div class="small-box text-bg-primary">
                   <div class="inner">
-                    <h3>150</h3>
-
-                    <p>New Orders</p>
+                  <h3>{{ \App\Models\Category::count() }}</h3>
+                  <p>Categories</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -52,7 +51,7 @@
                     ></path>
                   </svg>
                   <a
-                    href="#"
+                    href="{{ route('admin.categories.index') }}"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
                     More info <i class="bi bi-link-45deg"></i>
@@ -65,9 +64,8 @@
                 <!--begin::Small Box Widget 2-->
                 <div class="small-box text-bg-success">
                   <div class="inner">
-                    <h3>53<sup class="fs-5">%</sup></h3>
-
-                    <p>Bounce Rate</p>
+                  <h3>{{ \App\Models\Product::count() }}</h3>
+                  <p>Products</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -81,7 +79,7 @@
                     ></path>
                   </svg>
                   <a
-                    href="#"
+                    href="{{ route('admin.product.index') }}"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
                     More info <i class="bi bi-link-45deg"></i>
@@ -94,9 +92,8 @@
                 <!--begin::Small Box Widget 3-->
                 <div class="small-box text-bg-warning">
                   <div class="inner">
-                    <h3>44</h3>
-
-                    <p>User Registrations</p>
+                  <h3>{{ \App\Models\User::count() }}</h3>
+                  <p>Users</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -110,7 +107,7 @@
                     ></path>
                   </svg>
                   <a
-                    href="#"
+                    href="{{ route('admin.users.index') }}"
                     class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
                     More info <i class="bi bi-link-45deg"></i>
@@ -121,11 +118,13 @@
               <!--end::Col-->
               <div class="col-lg-3 col-6">
                 <!--begin::Small Box Widget 4-->
+                @php
+$adminCount = \App\Models\User::where('role', 'admin')->count();
+@endphp
                 <div class="small-box text-bg-danger">
                   <div class="inner">
-                    <h3>65</h3>
-
-                    <p>Unique Visitors</p>
+                  <h3>{{ $adminCount }}</h3>
+                  <p>Admins</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -463,6 +462,109 @@
               </div>
               <!-- /.Start col -->
             </div>
+            <div class="row">
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Latest Products</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered">
+                <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Actions</th>
+</tr>
+
+@foreach($latestProducts as $product)
+
+<tr>
+    <td>
+        @if($product->image)
+            <img src="{{ asset('storage/' . $product->image) }}" width="50">
+        @else
+            No Image
+        @endif
+    </td>
+
+    <td>{{ $product->title }}</td>
+
+    <td>
+        <a href="{{ route('admin.product.show', $product->id) }}"
+           class="btn btn-info btn-sm">
+            Show
+        </a>
+    </td>
+</tr>
+
+@endforeach
+                        <tr>
+                            <td>{{ $product->id }}</td>
+                            <td>{{ $product->title }}</td>
+                        </tr>
+                    
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Latest Users</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered">
+                <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Actions</th>
+</tr>
+
+@foreach($latestUsers as $user)
+<tr>
+
+    <td>
+        @if($user->image)
+            <img src="{{ asset('storage/' . $user->image) }}"
+                 width="50"
+                 height="50"
+                 class="img-thumbnail">
+        @else
+            No Image
+        @endif
+    </td>
+
+    <td>{{ $user->name }}</td>
+
+    <td>{{ $user->role }}</td>
+
+    <td>
+        <a href="{{ route('admin.users.show', $user->id) }}"
+           class="btn btn-info btn-sm">
+            Show
+        </a>
+
+        <a href="{{ route('admin.users.edit', $user->id) }}"
+           class="btn btn-primary btn-sm">
+            Edit
+        </a>
+    </td>
+
+</tr>
+@endforeach
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
             <!-- /.row (main row) -->
           </div>
           <!--end::Container-->

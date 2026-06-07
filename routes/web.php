@@ -4,10 +4,11 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\AdminProductController;
+use App\Http\Controllers\admin\AdminUserController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/greeting', function () {
     return 'Hello World';
@@ -33,9 +34,12 @@ Route::put('/admin/categories/{category}', [CategoryController::class, 'update']
 Route::delete('/admin/categories/{category}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
 
 */
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
 
-Route::get('/', function () {return view('admin.index');})->name('index');
+        Route::get('/', [AdminHomeController::class, 'index'])->name('index');
 
 
 Route::prefix('product')->name('product.')->controller(AdminProductController::class) ->group(function () {
@@ -74,4 +78,30 @@ Route::prefix('categories')->name('categories.')->controller(CategoryController:
         Route::delete('/delete/{category}', 'destroy')->name('destroy');
     });
 
+
+// User routes
+Route::prefix('users')->name('users.')->controller(AdminUserController::class)->group(function () {
+
+    Route::get('/', 'index')->name('index');
+
+    Route::get('/show/{user}', 'show')->name('show');
+
+    Route::get('/edit/{user}', 'edit')->name('edit');
+
+    Route::put('/update/{user}', 'update')->name('update');
+
+    Route::delete('/delete/{user}', 'destroy')->name('destroy');
 });
+
+
+
+
+});
+
+Route::get('/profile', function () {
+    return view('profile.edit');
+})->middleware('auth')->name('profile.edit');
+Route::get('/dashboard', function () {
+    return redirect()->route('admin.index');
+})->middleware(['auth', 'admin'])->name('dashboard');
+require __DIR__.'/auth.php';

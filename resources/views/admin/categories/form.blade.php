@@ -41,7 +41,7 @@
 <div class="mb-3">
     <label class="form-label">Description</label>
 
-    <textarea name="description" class="form-control">{{ old('description', $category->description ?? '') }}</textarea>
+    <textarea class="form-control" id="description" name="description"></textarea>
 
     @error('description')
     <small class="text-danger">{{ $message }}</small>

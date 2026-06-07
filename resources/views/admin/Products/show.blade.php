@@ -118,7 +118,23 @@
                             @endif
                         </td>
                     </tr>
-
+                    <tr>
+    <th>Gallery Images</th>
+    <td>
+        @if($product->images && $product->images->count() > 0)
+            <div class="d-flex flex-wrap gap-2">
+                @foreach($product->images as $image)
+                    <img src="{{ asset('storage/' . $image->image) }}"
+                         width="120"
+                         height="120"
+                         class="img-thumbnail">
+                @endforeach
+            </div>
+        @else
+            No gallery images
+        @endif
+    </td>
+</tr>
                     <tr>
                         <th>
                             <a href="{{ route('admin.product.index') }}"

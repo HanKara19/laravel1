@@ -96,3 +96,18 @@
       </main>
       <!--end::App Main-->
       @endsection
+      @section('footer')
+
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const descriptionField = document.querySelector('#description');
+
+    if (descriptionField) {
+        ClassicEditor.create(descriptionField);
+    }
+});
+</script>
+
+@endsection

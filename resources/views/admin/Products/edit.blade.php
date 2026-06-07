@@ -70,24 +70,28 @@ Edit Product
 
 @endsection
 
-@section("footer")
-<script src="https://cdn.ckeditor.com/4.25.1-lts/standard/ckeditor.js"></script>
+@section('footer')
+
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
 <style>
     .ck-editor__editable {
         min-height: 300px;
     }
 </style>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
- const detailField = document.querySelector('#detail');
- if (detailField) {
-     ClassicEditor
-         .create(detailField)
-         .catch(error => {
-             console.error(error);
-         });
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const detailField = document.querySelector('#detail');
+
+    if (detailField) {
+        ClassicEditor
+            .create(detailField)
+            .catch(error => {
+                console.error(error);
+            });
     }
 });
 </script>
+
 @endsection

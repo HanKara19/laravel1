@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use App\Models\ProductImage;
 
 class AdminProductController extends Controller
 {
@@ -35,7 +37,7 @@ class AdminProductController extends Controller
         $product = new Product();
 
         $product->category_id = $request->category_id;
-        $product->user_id = 1;
+        $product->user_id = Auth::id();
         $product->title = $request->title;
         $product->keywords = $request->keywords;
         $product->description = $request->description;
@@ -48,6 +50,16 @@ class AdminProductController extends Controller
         $product->status = $request->status ?? 0;
 
         $product->save();
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('products/gallery', 'public');
+        
+                ProductImage::create([
+                    'product_id' => $product->id,
+                    'image' => $imagePath,
+                ]);
+            }
+        }
 
         return redirect(route('admin.product.index'))
             ->with('success', 'Product created successfully.');
@@ -55,7 +67,7 @@ class AdminProductController extends Controller
 
     public function show(Product $product)
 {
-    $product->load('category');
+    $product->load('category', 'images');
 
     return view('admin.products.show', compact('product'));
 }
@@ -70,7 +82,7 @@ class AdminProductController extends Controller
     public function update(Request $request, Product $product)
 {
     $product->category_id = $request->category_id;
-    $product->user_id = 1;
+    $product->user_id = Auth::id();
     $product->title = $request->title;
     $product->keywords = $request->keywords;
     $product->description = $request->description;
@@ -87,6 +99,16 @@ class AdminProductController extends Controller
     $product->status = $request->status ?? 0;
 
     $product->save();
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            $imagePath = $image->store('products/gallery', 'public');
+    
+            ProductImage::create([
+                'product_id' => $product->id,
+                'image' => $imagePath,
+            ]);
+        }
+    }
 
     return redirect(route('admin.product.index'))
         ->with('success', 'Product updated successfully.');

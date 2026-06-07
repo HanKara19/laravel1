@@ -47,6 +47,22 @@
         <small class="text-danger">{{ $message }}</small>
     @enderror
 </div>
+<div class="mb-3">
+    <label class="form-label">Gallery Images</label>
+
+    <input type="file"
+           name="images[]"
+           class="form-control"
+           multiple>
+
+    <small class="text-muted">
+        Choose more image
+    </small>
+
+    @error('images')
+        <small class="text-danger">{{ $message }}</small>
+    @enderror
+</div>
 
 <div class="row">
 
