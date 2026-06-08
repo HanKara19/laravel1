@@ -18,13 +18,11 @@ class CheckoutController extends Controller
             ->get();
 
         if ($cartItems->isEmpty()) {
-            return redirect(route('cart.index'))
+            return redirect()->route('cart.index')
                 ->with('error', 'Your cart is empty.');
         }
 
-        $total = $cartItems->sum(function ($item) {
-            return $item->price * $item->quantity;
-        });
+        $total = $cartItems->sum(fn($item) => $item->price * $item->quantity);
 
         return view('home.checkout', compact('cartItems', 'total'));
     }
@@ -43,15 +41,12 @@ class CheckoutController extends Controller
             ->get();
 
         if ($cartItems->isEmpty()) {
-            return redirect(route('cart.index'))
+            return redirect()->route('cart.index')
                 ->with('error', 'Your cart is empty.');
         }
 
         DB::transaction(function () use ($request, $cartItems) {
-
-            $total = $cartItems->sum(function ($item) {
-                return $item->price * $item->quantity;
-            });
+            $total = $cartItems->sum(fn($item) => $item->price * $item->quantity);
 
             $order = Order::create([
                 'user_id' => Auth::id(),
@@ -64,15 +59,15 @@ class CheckoutController extends Controller
             ]);
 
             foreach ($cartItems as $item) {
-                OrderItem::create([
-                    'order_id' => $order->id,
-                    'product_id' => $item->product_id,
-                    'quantity' => $item->quantity,
-                    'price' => $item->price,
-                    'total' => $item->price * $item->quantity,
-                ]);
-
                 if ($item->product) {
+                    OrderItem::create([
+                        'order_id' => $order->id,
+                        'product_id' => $item->product_id,
+                        'quantity' => $item->quantity,
+                        'price' => $item->price,
+                        'total' => $item->price * $item->quantity,
+                    ]);
+
                     $item->product->decrement('stock', $item->quantity);
                 }
             }
@@ -80,7 +75,7 @@ class CheckoutController extends Controller
             Cart::where('user_id', Auth::id())->delete();
         });
 
-        return redirect(route('admin.orders.index'))
+        return redirect()->route('admin.orders.index')
             ->with('success', 'Order placed successfully.');
     }
 }

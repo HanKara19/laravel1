@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.master')
 
 @section('title')
     Products
@@ -6,47 +6,86 @@
 
 @section('content')
 
-<div class="container mt-5">
+<div class="section">
+    <div class="container">
 
-    <h2 class="mb-4">Products</h2>
+        <div class="row">
 
-    <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2 class="title">All Products</h2>
+                </div>
+            </div>
 
-        @foreach($products as $product)
+            @foreach($products as $product)
 
-            <div class="col-md-3 mb-4">
+                <div class="col-md-3 col-sm-6 col-xs-6">
 
-                <div class="card h-100">
+                    <div class="product product-single">
 
-                    @if($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}"
-                             class="card-img-top"
-                             height="250">
-                    @endif
+                        <div class="product-thumb">
+                            <a href="{{ route('product.detail', $product->id) }}">
+                                @if($product->image)
+                                    <img src="{{ asset('storage/' . $product->image) }}"
+                                         alt="{{ $product->title }}"
+                                         style="height:220px; object-fit:contain; width:100%; background:#fff;">
+                                @else
+                                    <img src="{{ asset('assets') }}/img/product01.jpg"
+                                         alt=""
+                                         style="height:220px; object-fit:contain; width:100%; background:#fff;">
+                                @endif
+                            </a>
+                        </div>
 
-                    <div class="card-body">
+                        <div class="product-body">
 
-                        <h5>{{ $product->title }}</h5>
+                            <h3 class="product-price">
+                                ${{ number_format($product->price, 2) }}
+                            </h3>
 
-                        <p>
-                            ${{ number_format($product->price, 2) }}
-                        </p>
+                            <h2 class="product-name">
+                                <a href="{{ route('product.detail', $product->id) }}">
+                                    {{ $product->title }}
+                                </a>
+                            </h2>
 
-                        <a href="{{ route('product.detail', $product->id) }}"
-                           class="btn btn-primary">
-                            View Details
-                        </a>
+                            <div class="product-btns">
+
+                                <a href="{{ route('product.detail', $product->id) }}"
+                                   class="main-btn quick-view">
+                                    <i class="fa fa-search-plus"></i>
+                                    View
+                                </a>
+
+                                <form action="{{ route('cart.add', $product->id) }}"
+                                      method="POST"
+                                      style="display:inline-block; margin-top:5px;">
+
+                                    @csrf
+
+                                    <input type="hidden" name="quantity" value="1">
+
+                                    <button type="submit"
+                                            class="primary-btn add-to-cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Add to Cart
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
+            @endforeach
 
-        @endforeach
+        </div>
 
     </div>
-
 </div>
 
 @endsection

@@ -14,8 +14,22 @@ class Order extends Model
         'email',
         'phone',
         'address',
+        'city',
+        'country',
+        'zip_code',
+        'subtotal',
+        'shipping_price',
         'total',
+        'shipping_method',
+        'payment_method',
         'status',
+    ];
+
+    public const STATUSES = [
+        'pending',
+        'processing',
+        'completed',
+        'cancelled',
     ];
 
     public function user(): BelongsTo
@@ -28,3 +42,4 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 }
+```

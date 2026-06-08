@@ -1,384 +1,110 @@
 <!-- NAVIGATION -->
 <div id="navigation">
-		<!-- container -->
-		<div class="container">
-			<div id="responsive-nav">
-				<!-- category nav -->
-				<div class="category-nav">
-					<span class="category-header">Categories <i class="fa fa-list"></i></span>
-					<ul class="category-list">
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Smart Phones<i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Gaming Devices</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="row hidden-sm hidden-xs">
-									<div class="col-md-12">
-										<hr>
-										<a class="banner banner-1" href="#">
-											<img src="{{ asset('assets') }}/img/banner05.jpg" alt="">
-											<div class="banner-caption text-center">
-												<h2 class="white-color">NEW COLLECTION</h2>
-												<h3 class="white-color font-weak">HOT DEAL</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="#">Laptops & Tablets</a></li>
-						<li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Phone Accessories <i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-									</div>
-									<div class="col-md-4 hidden-sm hidden-xs">
-										<a class="banner banner-2" href="#">
-											<img src="{{ asset('assets') }}/img/banner04.jpg" alt="">
-											<div class="banner-caption">
-												<h3 class="white-color">NEW<br>COLLECTION</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="#">Computer & Office</a></li>
-						<li><a href="#">Gaming Devices</a></li>
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Smart Watches <i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="#">Tech Accessories
-</a></li>
-						<li><a href="#">All Products</a></li>
-					</ul>
-				</div>
-				<!-- /category nav -->
+    <div class="container">
+        <div id="responsive-nav">
 
-				<!-- menu nav -->
-				<div class="menu-nav">
-					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
-					<ul class="menu-list">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Shop</a></li>
-						<li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women <i class="fa fa-caret-down"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="row hidden-sm hidden-xs">
-									<div class="col-md-12">
-										<hr>
-										<a class="banner banner-1" href="#">
-											<img src="{{ asset('assets') }}/img/banner05.jpg" alt="">
-											<div class="banner-caption text-center">
-												<h2 class="white-color">NEW COLLECTION</h2>
-												<h3 class="white-color font-weak">HOT DEAL</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Men <i class="fa fa-caret-down"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="{{ asset('assets') }}/img/banner06.jpg" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Women’s</h3>
-												</div>
-											</a>
-											<hr>
-										</div>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="{{ asset('assets') }}/img/banner07.jpg" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Men’s</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="{{ asset('assets') }}/img/banner08.jpg" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Accessories</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="{{ asset('assets') }}/img/banner09.jpg" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Bags</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Smart Phones</a></li>
-											<li><a href="#">Laptops & Tablets</a></li>
-											<li><a href="#">Phone Accessories</a></li>
-											<li><a href="#">Smart Watches</a></li>
-											<li><a href="#">Tech Accessories
-</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="#">Sales</a></li>
-						<li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages <i class="fa fa-caret-down"></i></a>
-							<ul class="custom-menu">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="products.html">Products</a></li>
-								<li><a href="product-page.html">Product Details</a></li>
-								<li><a href="checkout.html">Checkout</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<!-- menu nav -->
-			</div>
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /NAVIGATION -->
+            <!-- category nav -->
+            <div class="category-nav">
+                <span class="category-header">
+                    Categories <i class="fa fa-list"></i>
+                </span>
+
+                @php
+    $frontCategories = \App\Models\Category::with(['products' => function ($query) {
+        $query->where('status', 1);
+    }])->get();
+@endphp
+
+<ul class="category-list">
+
+    <li>
+        <a href="{{ route('products') }}">ALL PRODUCTS</a>
+    </li>
+
+    @foreach($frontCategories as $category)
+
+        <li class="dropdown side-dropdown">
+
+            <a class="dropdown-toggle"
+               data-toggle="dropdown"
+               aria-expanded="true">
+
+                {{ strtoupper($category->title ?? $category->name) }}
+
+                <i class="fa fa-angle-right"></i>
+            </a>
+
+            <div class="custom-menu">
+
+                <ul class="list-links">
+
+                    @forelse($category->products as $product)
+
+                        <li>
+                            <a href="{{ route('product.detail', $product->id) }}">
+                                {{ $product->title }}
+                            </a>
+                        </li>
+
+                    @empty
+
+                        <li>
+                            <a href="#">
+                                No products
+                            </a>
+                        </li>
+
+                    @endforelse
+
+                </ul>
+
+            </div>
+
+        </li>
+
+    @endforeach
+
+</ul>
+</div>
+            <!-- /category nav -->
+
+            <!-- menu nav -->
+            <div class="menu-nav">
+                <span class="menu-header">
+                    Menu <i class="fa fa-bars"></i>
+                </span>
+
+                <ul class="menu-list">
+
+                    <li>
+                        <a href="{{ route('home') }}">HOME</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('products') }}">PRODUCTS</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('cart.index') }}">CART</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('checkout') }}">CHECKOUT</a>
+                    </li>
+
+                    @auth
+                        @if(Auth::user()->role == 'admin')
+                            <li>
+                                <a href="{{ route('admin.index') }}">ADMIN PANEL</a>
+                            </li>
+                        @endif
+                    @endauth
+
+                </ul>
+            </div>
+            <!-- /menu nav -->
+
+        </div>
+    </div>
+</div>
+<!-- /NAVIGATION -->

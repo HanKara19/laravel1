@@ -3,80 +3,125 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Role;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminUserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the users.
      */
     public function index()
-{
-    $users = User::all();
+    {
+        $users = User::with('roles')->latest()->get();
 
-    return view('admin.users.index', compact('users'));
-}
+        return view('admin.users.index', compact('users'));
+    }
 
     /**
-     * Show the form for creating a new resource.
+     * Preferences > Users linki de aynı kullanıcı listesini açsın.
      */
+    public function preferences()
+    {
+        $users = User::with('roles')->latest()->get();
+
+        return view('admin.users.index', compact('users'));
+    }
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified user.
      */
     public function show(User $user)
-{
-    return view('admin.users.show', compact('user'));
-}
+    {
+        $user->load('roles');
+
+        return view('admin.users.show', compact('user'));
+    }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified user.
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        $user->load('roles');
+
+        $roles = Role::all();
+
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user.
      */
     public function update(Request $request, User $user)
-{
-    $user->name = $request->name;
-    $user->email = $request->email;
-    $user->role = $request->role;
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'role' => 'nullable|string|max:50',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
 
-    if ($request->hasFile('image')) {
-        $user->image = $request->file('image')->store('users', 'public');
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if ($request->filled('role')) {
+            $user->role = $request->role;
+        }
+
+        /*
+         |--------------------------------------------------------------------------
+         | User image update
+         |--------------------------------------------------------------------------
+         */
+        if ($request->hasFile('image')) {
+            if ($user->image && Storage::disk('public')->exists($user->image)) {
+                Storage::disk('public')->delete($user->image);
+            }
+
+            $user->image = $request->file('image')->store('users', 'public');
+        }
+
+        $user->save();
+
+        if ($request->filled('role')) {
+            $role = Role::where('name', $request->role)->first();
+
+            if ($role) {
+                $user->roles()->syncWithoutDetaching([$role->id]);
+            }
+        }
+
+        return redirect(route('admin.users.index'))
+            ->with('success', 'User updated successfully.');
     }
 
-    $user->save();
-
-    return redirect(route('admin.users.index'))
-        ->with('success', 'User updated successfully.');
-}
-
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified user.
      */
     public function destroy(User $user)
-{
-    $user->delete();
+    {
+        if ($user->image && Storage::disk('public')->exists($user->image)) {
+            Storage::disk('public')->delete($user->image);
+        }
 
-    return redirect(route('admin.users.index'))
-        ->with('success', 'User deleted successfully.');
-}
+        $user->roles()->detach();
+
+        $user->delete();
+
+        return redirect(route('admin.users.index'))
+            ->with('success', 'User deleted successfully.');
+    }
 }

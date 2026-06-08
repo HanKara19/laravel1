@@ -49,12 +49,7 @@
                         <p>Products</p>
                     </a>
                 </li>
-                <li class="nav-item">
-    <a href="{{ route('admin.users.index') }}" class="nav-link">
-        <i class="nav-icon bi bi-people"></i>
-        <p>Users</p>
-    </a>
-</li>
+                
                 <!-- Reviews -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -141,11 +136,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon bi bi-people-fill"></i>
-                        <p>Users</p>
-                    </a>
-                </li>
+    <a href="{{ route('admin.preferences.users') }}" class="nav-link">
+        <i class="nav-icon bi bi-people-fill"></i>
+        <p>Users</p>
+    </a>
+</li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">

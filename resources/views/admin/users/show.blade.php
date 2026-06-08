@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 
 @section('title')
@@ -10,48 +11,87 @@ User Detail
 
     <div class="app-content-header">
         <div class="container-fluid">
-            <h3>User Detail</h3>
+            <h3 class="mb-0">User Detail</h3>
         </div>
     </div>
 
     <div class="app-content">
         <div class="container-fluid">
 
-            <table class="table table-bordered">
+            <div class="card">
+                <div class="card-body">
 
-                <tr>
-                    <th width="200">ID</th>
-                    <td>{{ $user->id }}</td>
-                </tr>
+                    <table class="table table-bordered table-striped">
 
-                <tr>
-                    <th>Image</th>
-                    <td>
-                        @if($user->image)
-                            <img src="{{ asset('storage/'.$user->image) }}"
-                                 width="120">
-                        @else
-                            No Image
-                        @endif
-                    </td>
-                </tr>
+                        <tr>
+                            <th width="200">ID</th>
+                            <td>{{ $user->id }}</td>
+                        </tr>
 
-                <tr>
-                    <th>Name</th>
-                    <td>{{ $user->name }}</td>
-                </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td>
+                                @if($user->image)
+                                    <img src="{{ asset('storage/' . $user->image) }}"
+                                         width="120"
+                                         height="120"
+                                         class="img-thumbnail"
+                                         style="object-fit: cover;">
+                                @else
+                                    <span class="badge bg-secondary">No Image</span>
+                                @endif
+                            </td>
+                        </tr>
 
-                <tr>
-                    <th>Email</th>
-                    <td>{{ $user->email }}</td>
-                </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ $user->name }}</td>
+                        </tr>
 
-                <tr>
-                    <th>Role</th>
-                    <td>{{ $user->role }}</td>
-                </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ $user->email }}</td>
+                        </tr>
 
-            </table>
+                        <tr>
+                            <th>Role</th>
+                            <td>
+                                @if($user->roles && $user->roles->count() > 0)
+                                    @foreach($user->roles as $role)
+                                        <span class="badge bg-primary">
+                                            {{ ucfirst($role->name) }}
+                                        </span>
+                                    @endforeach
+                                @else
+                                    <span class="badge bg-secondary">
+                                        {{ ucfirst($user->role ?? 'user') }}
+                                    </span>
+                                @endif
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Created At</th>
+                            <td>{{ $user->created_at }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Updated At</th>
+                            <td>{{ $user->updated_at }}</td>
+                        </tr>
+
+                    </table>
+
+                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">
+                        Edit
+                    </a>
+
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
+                        Back
+                    </a>
+
+                </div>
+            </div>
 
         </div>
     </div>
@@ -59,3 +99,4 @@ User Detail
 </main>
 
 @endsection
+```
