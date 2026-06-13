@@ -17,3 +17,7 @@
 ---
 
 I made the first commit at the time you specified. However, I originally wrote it in Turkish, but when I edited it into English, it looks like it was just created. I just wanted to point that out. 
+
+---
+
+git show $(git rev-list --max-parents=0 HEAD) if you use this code in terminal you can see original date . 
